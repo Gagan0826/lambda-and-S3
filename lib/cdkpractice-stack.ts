@@ -6,8 +6,8 @@ import { Envconfigs } from './environments/env-interfaces';
 // import * as sqs from 'aws-cdk-lib/aws-sqs';
 
 export class CdkpracticeStack extends cdk.Stack {
-  constructor(scope: Construct, id: string, props?: cdk.StackProps) {
-    super(scope, id, props);
+  constructor(scope: Construct, id: string, props?: Envconfigs) {
+    super(scope, id, props?.accountConfig);
 
 
     const bucket = new s3.Bucket(this,'mys3',{

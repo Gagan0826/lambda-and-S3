@@ -6,5 +6,5 @@ import { devconfigs } from '../lib/environments/dev';
 import { prodconfigs } from '../lib/environments/prod';
 
 const app = new cdk.App();
-new CdkpracticeStack(app, 'CdkpracticeStack-dev',devconfigs.accountConfig);
+new CdkpracticeStack(app, 'CdkpracticeStack-dev',devconfigs);
 //new CdkpracticeStack(app, 'CdkpracticeStack-prod',prodconfigs.accountConfig);
