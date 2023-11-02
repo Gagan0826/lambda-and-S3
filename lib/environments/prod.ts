@@ -10,7 +10,9 @@ export const prodconfigs:Envconfigs={
     },
     resourceConfigs:{
         envName:"prod-env",
-        S3BucketName:"S3-for-data-transfer-from-lambda",
+        S3bucketId:"s3-for-prod",
+        S3BucketName:"s3-for-data-transfer-from-lambda",
+        LambdaId:"lambda-for-prod",
         LambdaName:"lambda-for-s3-data-transfer"
     }
 }

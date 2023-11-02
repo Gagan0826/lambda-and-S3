@@ -6,16 +6,17 @@ import { Envconfigs } from './environments/env-interfaces';
 // import * as sqs from 'aws-cdk-lib/aws-sqs';
 
 export class CdkpracticeStack extends cdk.Stack {
-  constructor(scope: Construct, id: string, props?: Envconfigs) {
+  constructor(scope: Construct, id: string, props: Envconfigs) {
     super(scope, id, props?.accountConfig);
 
 
-    const bucket = new s3.Bucket(this,'mys3',{
-      bucketName:"lamdabuckettest1220",
+    const bucket = new s3.Bucket(this,`${props.resourceConfigs.S3bucketId}`,{
+      bucketName:`${props.resourceConfigs.envName}-${props.resourceConfigs.S3BucketName}`,
       encryption: s3.BucketEncryption.S3_MANAGED,
       removalPolicy: cdk.RemovalPolicy.DESTROY});
 
-      const LambdaFunction= new lambda.Function(this,'lambdas3test',{
+      const LambdaFunction= new lambda.Function(this,props.resourceConfigs.LambdaId,{
+        functionName:`${props.resourceConfigs.envName}-${props.resourceConfigs.LambdaName}`,
         runtime:lambda.Runtime.PYTHON_3_10,
         code:lambda.Code.fromAsset('lambda'),
         handler:"index.handler"

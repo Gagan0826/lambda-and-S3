@@ -5,6 +5,8 @@ export interface Envconfigs{
 }
 interface ResourceConfigs{
     envName:string;
+    S3bucketId:string;
     S3BucketName:string;
+    LambdaId:string
     LambdaName:string;
 }
